@@ -1,4 +1,4 @@
-Example queries to database of NIH Biomedical Inequality
+Example queries to NIH Biomedical Inequality database
 ========================================
 
 Querying funding table
