@@ -48,3 +48,14 @@ sqlite> SELECT SUM(num_cites) FROM (SELECT DISTINCT pmid, num_cites FROM pubs_ta
 
 Querying the patents table
 ------------------------
+
+* Get top five organizations with largest number of patents:
+
+```
+sqlite> SELECT COUNT(DISTINCT patent_id), PATENT_ORG_NAME FROM patents_table GROUP BY PATENT_ORG_NAME ORDER BY COUNT(DISTINCT patent_id) DESC LIMIT 5;
+960|STANFORD UNIVERSITY
+945|UNIVERSITY OF WISCONSIN-MADISON
+640|SCRIPPS RESEARCH INSTITUTE
+639|UNIVERSITY OF CALIFORNIA SYS OFFICE/PRES
+549|MASSACHUSETTS INSTITUTE OF TECHNOLOGY
+```
