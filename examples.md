@@ -7,7 +7,7 @@ Querying funding table
 * Calculate total number of grants awarded to Johns Hopkins University in 1985:
 
 ```
-sqlite> SELECT ORG_NAME, COUNT(DISTINCT application_id) FROM funding_table WHERE org_id='1910777' AND FY="1985";
+sqlite> SELECT ORG_NAME, COUNT(DISTINCT application_id) FROM funding_table WHERE org_id='1910777' AND FY='1985';
 JOHNS HOPKINS UNIVERSITY|1108
 ```
 
