@@ -46,6 +46,13 @@ sqlite> SELECT FY, COUNT(DISTINCT pmid) FROM pubs_table WHERE FY >= 2010 AND org
 sqlite> SELECT SUM(num_cites) FROM (SELECT DISTINCT pmid, num_cites FROM pubs_table WHERE FY=2010 AND org_id='9214214');
 ```
 
+* Get PLoS One publication funded by an R01 with largest number of citations:
+
+```
+sqlite> SELECT pmid,pub_year,pub_title,MAX(num_cites) FROM pubs_table WHERE JOURNAL_TITLE_ABBR='PLoS One' AND ACTIVITY='R01';
+19002258|2008|Detection of microRNA expression in human peripheral blood microvesicles.|720.0
+```
+
 Querying the patents table
 ------------------------
 
