@@ -16,7 +16,7 @@ JOHNS HOPKINS UNIVERSITY|1108
 Querying publications table
 --------------------------
 
-* Tabulate number of publications associated with R01 grants by year from 1985-1990: 
+* Tabulate number of publications funded by R01 grants by year from 1985-1990: 
 
 ```
 sqlite> SELECT FY, COUNT(DISTINCT pmid) FROM pubs_table WHERE FY >= 1985 AND FY <= 1990 GROUP BY FY;
@@ -28,7 +28,7 @@ sqlite> SELECT FY, COUNT(DISTINCT pmid) FROM pubs_table WHERE FY >= 1985 AND FY 
 1990|26710
 ```
 
-* Get number of publications produced by Stanford University from 2010-2015:
+* Get number of NIH-funded publications published by Stanford University from 2010-2015:
 
 ```
 sqlite> SELECT FY, COUNT(DISTINCT pmid) FROM pubs_table WHERE FY >= 2010 AND org_id='9214214' GROUP BY FY;
@@ -40,7 +40,7 @@ sqlite> SELECT FY, COUNT(DISTINCT pmid) FROM pubs_table WHERE FY >= 2010 AND org
 2015|1240
 ```
 
-* Get total number of citations Stanford University had in 2010:
+* Get total number of citations Stanford University had from NIH-funded publications in 2010:
 
 ```
 sqlite> SELECT SUM(num_cites) FROM (SELECT DISTINCT pmid, num_cites FROM pubs_table WHERE FY=2010 AND org_id='9214214');
@@ -56,7 +56,7 @@ sqlite> SELECT pmid,pub_year,pub_title,MAX(num_cites) FROM pubs_table WHERE JOUR
 Querying the patents table
 ------------------------
 
-* Get top five organizations with largest number of patents:
+* Get top five organizations with largest number of NIH-funded patents:
 
 ```
 sqlite> SELECT COUNT(DISTINCT patent_id), PATENT_ORG_NAME FROM patents_table GROUP BY PATENT_ORG_NAME ORDER BY COUNT(DISTINCT patent_id) DESC LIMIT 5;
